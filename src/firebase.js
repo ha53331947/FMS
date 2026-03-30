@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDNSo7_eL-xDdQv6ZB5CPC2z9BVQZ3fhqw",
   authDomain: "haris-14.firebaseapp.com",
-  databaseURL: "hhttps://haris-14.firebaseio.com/",
+  databaseURL: "https://haris-14.firebaseio.com/",
   projectId: "haris-14",
   storageBucket: "haris-14.firebasestorage.app",
   messagingSenderId: "562678004715",
