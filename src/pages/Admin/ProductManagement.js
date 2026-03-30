@@ -10,9 +10,7 @@ const ProductManagement = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
-  // BASE URL bina .json ke (Edit/Delete ke liye)
   const BASE_URL = 'https://haris-14.firebaseio.com/products';
-  // FULL URL .json ke saath (Fetch/Post ke liye)
   const API_URL = `${BASE_URL}.json`;
   const ORDERS_URL = 'https://haris-14.firebaseio.com/orders.json';
 
@@ -20,10 +18,9 @@ const ProductManagement = () => {
     setLoading(true);
     try {
       const res = await axios.get(API_URL);
-      // Firebase Object ko Array mein badalna:
       if (res.data) {
         const formattedData = Object.keys(res.data).map((key) => ({
-          id: key, // Firebase ki auto-generated key (e.g. -Nxyz...)
+          id: key,
           ...res.data[key],
         }));
         setProducts(formattedData);
@@ -67,11 +64,9 @@ const ProductManagement = () => {
     const productData = { ...newProduct, price: Number(newProduct.price) };
     try {
       if (isEditing) {
-        // Edit ke liye: products/ID.json
         await axios.put(`${BASE_URL}/${currentId}.json`, productData);
         alert("Product Updated!");
       } else {
-        // Add ke liye: products.json
         await axios.post(API_URL, productData);
         alert("Product Added!");
       }
@@ -95,7 +90,6 @@ const ProductManagement = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Bhai, kya waqai is item ko nikalna hai?")) {
       try {
-        // Delete ke liye: products/ID.json
         await axios.delete(`${BASE_URL}/${id}.json`);
         fetchProducts();
       } catch (err) {
@@ -156,31 +150,34 @@ const ProductManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((p) => (
-              <tr key={p.id} style={{ borderBottom: '1px solid #233554' }}>
-                <td style={{ padding: '15px', fontSize: '10px' }}>{p.id}</td>
-                <td style={{ color: '#64ffda', fontWeight: 'bold' }}>{p.name}</td>
-                <td><span style={{ background: '#112240', padding: '4px 10px', borderRadius: '4px' }}>{p.category}</span></td>
-                <td>Rs. {p.price}</td>
-                <td style={{ display: 'flex', gap: '8px', padding: '15px' }}>
-                  <button 
-                    onClick={() => handleOrderNow(p)}
-                    style={{ background: '#64ffda', color: '#020c1b', border: 'none', padding: '5px 12px', fontWeight: 'bold', cursor: 'pointer', borderRadius: '4px' }}
-                  >
-                    ORDER NOW
-                  </button>
-
-                  <button 
-                    className="edit-btn" 
-                    onClick={() => handleEditClick(p)}
-                    style={{ background: 'transparent', border: '1px solid #ffae00', color: '#ffae00', padding: '5px 10px', cursor: 'pointer', borderRadius: '4px' }}
-                  >
-                    Edit
-                  </button>
-                  <button onClick={() => handleDelete(p.id)} style={{ background: '#ff4d4d', border: 'none', color: 'white', padding: '5px 10px', cursor: 'pointer', borderRadius: '4px' }}>Remove</button>
-                </td>
-              </tr>
-            ))}
+            {Array.isArray(products) && products.length > 0 ? (
+              products.map((p) => (
+                <tr key={p.id} style={{ borderBottom: '1px solid #233554' }}>
+                  <td style={{ padding: '15px', fontSize: '10px' }}>{p.id}</td>
+                  <td style={{ color: '#64ffda', fontWeight: 'bold' }}>{p.name}</td>
+                  <td><span style={{ background: '#112240', padding: '4px 10px', borderRadius: '4px' }}>{p.category}</span></td>
+                  <td>Rs. {p.price}</td>
+                  <td style={{ display: 'flex', gap: '8px', padding: '15px' }}>
+                    <button 
+                      onClick={() => handleOrderNow(p)}
+                      style={{ background: '#64ffda', color: '#020c1b', border: 'none', padding: '5px 12px', fontWeight: 'bold', cursor: 'pointer', borderRadius: '4px' }}
+                    >
+                      ORDER NOW
+                    </button>
+                    <button 
+                      className="edit-btn" 
+                      onClick={() => handleEditClick(p)}
+                      style={{ background: 'transparent', border: '1px solid #ffae00', color: '#ffae00', padding: '5px 10px', cursor: 'pointer', borderRadius: '4px' }}
+                    >
+                      Edit
+                    </button>
+                    <button onClick={() => handleDelete(p.id)} style={{ background: '#ff4d4d', border: 'none', color: 'white', padding: '5px 10px', cursor: 'pointer', borderRadius: '4px' }}>Remove</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr><td colSpan="5" style={{ padding: '20px', color: '#8892b0' }}>No products found.</td></tr>
+            )}
           </tbody>
         </table>
       )}
