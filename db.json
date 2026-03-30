@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "uid": "admin123",
+      "email": "admin@franchise.com",
+      "role": "admin"
+    }
+  ],
+  "branches": [
+    {
+      "name": "kfc",
+      "location": "FB AREA KARACHI GULBERG TOWN",
+      "managerEmail": "ha53331947@gmail.com",
+      "id": 1,
+      "employees": [
+        {
+          "name": "moshin",
+          "role": "chef",
+          "contact": "",
+          "id": 1774769746742
+        }
+      ],
+      "inventory": {
+        "chicken": 0,
+        "beef": 0,
+        "bread": 0,
+        "fries": 0
+      }
+    }
+  ],
+  "products": [
+    {
+      "name": "zinger",
+      "category": "burger",
+      "price": 500,
+      "id": 1
+    },
+    {
+      "name": "pizza",
+      "category": "pizza",
+      "price": 500,
+      "id": 2
+    }
+  ],
+  "inventory": [],
+  "orders": [
+    {
+      "customerName": "haris",
+      "contact": "03212100847",
+      "address": "1571\n3 Madni Masjid Rd\nFederal B Area Karimabad Block 3 Gulberg Town",
+      "quantity": 1,
+      "productName": "zinger",
+      "total": 500,
+      "status": "Pending",
+      "timestamp": "3/29/2026, 2:54:25 PM",
+      "id": 1
+    }
+  ]
+}

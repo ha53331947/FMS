@@ -1,0 +1,82 @@
+.manager-dashboard-container {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100vw;
+  height: 100vh;
+  background: #0d0d0d; /* Slightly darker for manager */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.manager-sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #121212;
+  border-right: 2px solid #f44336;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 30px 20px;
+  height: 100%;
+}
+
+.manager-sidebar-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.manager-neon-text {
+  color: #f44336 !important;
+  text-shadow: 0 0 10px #f44336;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.manager-nav-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.manager-nav-item {
+  color: #ffffff !important; /* Pure White Text */
+  text-decoration: none !important;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: block !important;
+  transition: 0.3s;
+}
+
+.manager-nav-item:hover {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336 !important;
+  transform: translateX(5px);
+}
+
+.manager-main-content {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+  color: #ffffff !important;
+}
+
+.manager-logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  background: transparent;
+  color: #f44336 !important;
+  border: 1px solid #f44336 !important;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+  margin-bottom: 20%;
+}
+
+.manager-logout-btn:hover {
+  background: #f44336;
+  color: #ffffff !important;
+}
