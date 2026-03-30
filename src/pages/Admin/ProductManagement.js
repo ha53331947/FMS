@@ -10,8 +10,8 @@ const ProductManagement = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
-  const API_URL = 'http://localhost:5000/products';
-  const ORDERS_URL = 'http://localhost:5000/orders'; // Orders ka endpoint
+  const API_URL = 'https://haris-14.firebaseio.com/products.json';
+  const ORDERS_URL = 'https://haris-14.firebaseio.com/orders.json'; // Orders ka endpoint
 
   const fetchProducts = async () => {
     setLoading(true);

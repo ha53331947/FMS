@@ -7,7 +7,7 @@ const EmployeeManagement = () => {
   const [newEmp, setNewEmp] = useState({ name: '', role: '', contact: '' });
   const [editId, setEditId] = useState(null); // Edit track karne ke liye
   
-  const API_URL = 'http://localhost:5000/branches/1'; // Branch 1 context
+  const API_URL = 'https://haris-14.firebaseio.com/branches/1.json'; // Branch 1 context
 
   useEffect(() => {
     fetchEmployees();

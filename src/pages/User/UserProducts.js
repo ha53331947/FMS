@@ -7,7 +7,7 @@ const UserProducts = () => {
   const [formData, setFormData] = useState({ name: '', contact: '', address: '', qty: 1 });
 
   useEffect(() => {
-    axios.get('http://localhost:5000/products')
+    axios.get('https://haris-14.firebaseio.com/products.json')
       .then(res => setProducts(res.data))
       .catch(err => console.error("Error fetching products:", err));
   }, []);
@@ -32,7 +32,7 @@ const UserProducts = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/orders', order);
+      await axios.post('https://haris-14.firebaseio.com/orders', order);
       alert(`🚀 Order Placed: ${itemName}`);
       
       setSelectedProduct(null);

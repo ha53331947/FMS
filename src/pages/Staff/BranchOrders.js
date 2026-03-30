@@ -8,7 +8,7 @@ const BranchOrders = () => {
   
   // Abhi hum Branch ID 1 (Lahore) assume kar rahe hain
   const BRANCH_ID = 1; 
-  const API_URL = 'http://localhost:5000/orders';
+  const API_URL = 'https://haris-14.firebaseio.com/orders.json';
 
   useEffect(() => {
     fetchBranchOrders();

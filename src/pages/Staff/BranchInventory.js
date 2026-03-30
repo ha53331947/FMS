@@ -4,7 +4,7 @@ import axios from 'axios';
 const BranchInventory = () => {
   const [inventory, setInventory] = useState({});
   const [loading, setLoading] = useState(true);
-  const API_URL = 'http://localhost:5000/branches/1'; 
+  const API_URL = 'https://haris-14.firebaseio.com/branches/1.json'; 
 
   useEffect(() => {
     fetchInventory();

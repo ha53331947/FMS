@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const InventoryManagement = () => {
   const [branches, setBranches] = useState([]);
-  const API_URL = 'http://localhost:5000/branches';
+  const API_URL = 'https://haris-14.firebaseio.com/branches.json';
 
   useEffect(() => {
     axios.get(API_URL).then(res => setBranches(res.data));

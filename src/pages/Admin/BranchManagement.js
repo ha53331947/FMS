@@ -9,7 +9,7 @@ const BranchManagement = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
-  const API_URL = 'http://localhost:5000/branches';
+  const API_URL = 'https://haris-14.firebaseio.com/branches.json';
 
   const fetchBranches = async () => {
     setLoading(true);

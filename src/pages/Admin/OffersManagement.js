@@ -6,7 +6,7 @@ const OffersManagement = () => {
   const [newOffer, setNewOffer] = useState({ title: '', discount: '', code: '' });
   const [loading, setLoading] = useState(false);
 
-  const API_URL = 'http://localhost:5000/offers';
+  const API_URL = 'https://haris-14.firebaseio.com/offers';
 
   const fetchOffers = async () => {
     setLoading(true);

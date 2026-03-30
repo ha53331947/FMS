@@ -5,7 +5,7 @@ const UserOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/orders')
+    axios.get('https://haris-14.firebaseio.com/orders.json')
       .then(res => setMyOrders(res.data))
       .catch(err => console.log(err));
   }, []);

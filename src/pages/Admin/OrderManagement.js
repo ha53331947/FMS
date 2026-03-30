@@ -4,7 +4,7 @@ import axios from 'axios';
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const API_URL = 'http://localhost:5000/orders'; 
+  const API_URL = 'https://haris-14.firebaseio.com/orders.json'; 
 
   const fetchOrders = async () => {
     setLoading(true);
