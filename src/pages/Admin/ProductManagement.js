@@ -10,7 +10,7 @@ const ProductManagement = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
-  const BASE_URL = 'https://haris-14.firebaseio.com/products';
+  const BASE_URL = 'https://haris-14.firebaseio.com/products.json';
   const API_URL = `${BASE_URL}.json`;
   const ORDERS_URL = 'https://haris-14.firebaseio.com/orders.json';
 
